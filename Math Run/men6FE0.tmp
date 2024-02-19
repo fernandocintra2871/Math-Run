@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvyvojr61jtcl"]
+
+[ext_resource type="Texture2D" uid="uid://cgt8guxmo4jhg" path="res://assets/background_menu.png" id="1_25ehs"]
+[ext_resource type="Script" path="res://menu.gd" id="1_a6cbd"]
+[ext_resource type="Texture2D" uid="uid://bwrirb7d0gpjv" path="res://assets/logo.png" id="2_tdvmf"]
+[ext_resource type="Texture2D" uid="uid://cn6a5hm7tjdey" path="res://assets/button_jogar.png" id="3_h03kq"]
+[ext_resource type="Texture2D" uid="uid://0rxjyo38c8mf" path="res://assets/button_opcao.png" id="4_8gtam"]
+[ext_resource type="Texture2D" uid="uid://b7hq8s86nudxh" path="res://assets/button_pontuacao.png" id="5_g4354"]
+[ext_resource type="Texture2D" uid="uid://b2wu0ee7qpm4w" path="res://assets/button_sobre.png" id="6_iifqs"]
+[ext_resource type="Texture2D" uid="uid://cpy3uw1806nco" path="res://assets/button_sair.png" id="7_x0sdy"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a6cbd")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = ExtResource("1_25ehs")
+expand_mode = 1
+
+[node name="VBox1" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -313.0
+offset_top = -435.5
+offset_right = 313.0
+offset_bottom = 435.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(300, 400)
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="logo" type="TextureRect" parent="VBox1"]
+layout_mode = 2
+texture = ExtResource("2_tdvmf")
+
+[node name="HBox1" type="HBoxContainer" parent="VBox1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBox2" type="VBoxContainer" parent="VBox1/HBox1"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="jogar" type="TextureButton" parent="VBox1/HBox1/VBox2" groups=["buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("3_h03kq")
+
+[node name="opcoes" type="TextureButton" parent="VBox1/HBox1/VBox2" groups=["buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("4_8gtam")
+
+[node name="pontuacao" type="TextureButton" parent="VBox1/HBox1/VBox2" groups=["buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("5_g4354")
+
+[node name="sobre" type="TextureButton" parent="VBox1/HBox1/VBox2" groups=["buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("6_iifqs")
+
+[node name="sair" type="TextureButton" parent="VBox1/HBox1/VBox2" groups=["buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("7_x0sdy")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcq6i1ifoa4ff"]
+
+[ext_resource type="Texture2D" uid="uid://bc17kj03o2etu" path="res://assets/equals_frame.png" id="1_bx0fq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bg4gp"]
+font_size = 48
+font_color = Color(0.447059, 0.584314, 0.6, 1)
+
+[node name="EqualsOperator" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(50, 50)
+texture = ExtResource("1_bx0fq")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "="
+label_settings = SubResource("LabelSettings_bg4gp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

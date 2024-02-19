@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://blsnxrxnqmqfj"]
+
+[ext_resource type="Texture2D" uid="uid://c2u255n5xfjim" path="res://assets/defeat.png" id="1_wvdqp"]
+[ext_resource type="Texture2D" uid="uid://cfhlhggncrt0v" path="res://assets/reaload_button.png" id="2_1cl3u"]
+[ext_resource type="Script" path="res://reload.gd" id="3_vh5so"]
+
+[node name="defeat_dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.529412)
+
+[node name="deafeat" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.0
+offset_top = -88.0
+offset_right = 358.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wvdqp")
+
+[node name="reload" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 501.0
+offset_right = 1229.0
+offset_bottom = 577.0
+texture_normal = ExtResource("2_1cl3u")
+script = ExtResource("3_vh5so")
+
+[connection signal="mouse_entered" from="reload" to="reload" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="reload" to="reload" method="_on_mouse_exited"]
+[connection signal="pressed" from="reload" to="reload" method="_on_pressed"]

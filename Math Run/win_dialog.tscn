@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1650nmlqwn7y"]
+
+[ext_resource type="Texture2D" uid="uid://gificn3s5x7b" path="res://assets/win.png" id="1_2dyrv"]
+[ext_resource type="Texture2D" uid="uid://cce8bx3awrsiv" path="res://assets/next_button.png" id="2_h3uva"]
+[ext_resource type="Script" path="res://next.gd" id="3_7gupx"]
+
+[node name="win_dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.529412)
+
+[node name="win" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.5
+offset_top = -95.5
+offset_right = 327.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2dyrv")
+
+[node name="next" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 509.0
+offset_right = 1194.0
+offset_bottom = 586.0
+texture_normal = ExtResource("2_h3uva")
+script = ExtResource("3_7gupx")
+
+[connection signal="mouse_entered" from="next" to="next" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="next" to="next" method="_on_mouse_exited"]
+[connection signal="pressed" from="next" to="next" method="_on_pressed"]

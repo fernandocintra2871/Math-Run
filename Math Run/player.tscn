@@ -1,0 +1,272 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1fml8suv53sn"]
+
+[ext_resource type="Texture2D" uid="uid://bis1lyrc4uxn4" path="res://assets/number_frame.png" id="1_2xema"]
+[ext_resource type="Texture2D" uid="uid://bi4our8xyvla1" path="res://assets/empty_frame.png" id="1_84451"]
+[ext_resource type="Script" path="res://scripts/Slots.gd" id="1_fuh0c"]
+[ext_resource type="Script" path="res://main.gd" id="1_mq0mt"]
+[ext_resource type="Script" path="res://scripts/Numbers.gd" id="2_lvs0w"]
+[ext_resource type="Texture2D" uid="uid://bkfocm57ck3v5" path="res://assets/operator_frame.png" id="9_kn87t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nln8v"]
+size = Vector2(50, 50)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_mq0mt")
+metadata/check = true
+
+[node name="Slot1" type="Area2D" parent="." groups=["Slots"]]
+script = ExtResource("1_fuh0c")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Slot1"]
+position = Vector2(50, 50)
+texture = ExtResource("1_84451")
+
+[node name="Collison" type="CollisionShape2D" parent="Slot1"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Slot2" type="Area2D" parent="." groups=["Slots"]]
+position = Vector2(100, 0)
+script = ExtResource("1_fuh0c")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Slot2"]
+position = Vector2(50, 50)
+texture = ExtResource("1_84451")
+
+[node name="Collison" type="CollisionShape2D" parent="Slot2"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Slot3" type="Area2D" parent="." groups=["Slots"]]
+position = Vector2(200, 0)
+script = ExtResource("1_fuh0c")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Slot3"]
+position = Vector2(50, 50)
+texture = ExtResource("1_84451")
+
+[node name="Collison" type="CollisionShape2D" parent="Slot3"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Bar1" type="Area2D" parent="." groups=["Bar"]]
+position = Vector2(0, 500)
+script = ExtResource("1_fuh0c")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Bar1"]
+position = Vector2(50, 50)
+texture = ExtResource("1_84451")
+
+[node name="Collison" type="CollisionShape2D" parent="Bar1"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Bar2" type="Area2D" parent="." groups=["Bar"]]
+position = Vector2(100, 500)
+script = ExtResource("1_fuh0c")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Bar2"]
+position = Vector2(50, 50)
+texture = ExtResource("1_84451")
+
+[node name="Collison" type="CollisionShape2D" parent="Bar2"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Bar3" type="Area2D" parent="." groups=["Bar"]]
+position = Vector2(200, 500)
+script = ExtResource("1_fuh0c")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Bar3"]
+position = Vector2(50, 50)
+texture = ExtResource("1_84451")
+
+[node name="Collison" type="CollisionShape2D" parent="Bar3"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Bar4" type="Area2D" parent="." groups=["Bar"]]
+position = Vector2(341, 521)
+script = ExtResource("1_fuh0c")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Bar4"]
+position = Vector2(50, 50)
+texture = ExtResource("1_84451")
+
+[node name="Collison" type="CollisionShape2D" parent="Bar4"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="EqualsOperator" type="StaticBody2D" parent="."]
+position = Vector2(300, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="EqualsOperator"]
+position = Vector2(50, 50)
+texture = ExtResource("9_kn87t")
+
+[node name="Collison" type="CollisionShape2D" parent="EqualsOperator"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Label" type="Label" parent="EqualsOperator"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpectedValue" type="StaticBody2D" parent="."]
+position = Vector2(400, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="ExpectedValue"]
+position = Vector2(50, 50)
+texture = ExtResource("1_2xema")
+
+[node name="Collison" type="CollisionShape2D" parent="ExpectedValue"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Label" type="Label" parent="ExpectedValue"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Number1" type="Area2D" parent="." groups=["Cards"]]
+position = Vector2(492, 423)
+script = ExtResource("2_lvs0w")
+metadata/_edit_group_ = true
+
+[node name="Collison" type="CollisionShape2D" parent="Number1"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Sprite" type="Sprite2D" parent="Number1"]
+position = Vector2(50, 50)
+texture = ExtResource("1_2xema")
+
+[node name="Label" type="Label" parent="Number1"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Number2" type="Area2D" parent="." groups=["Cards"]]
+position = Vector2(283, 417)
+script = ExtResource("2_lvs0w")
+metadata/_edit_group_ = true
+
+[node name="Collison" type="CollisionShape2D" parent="Number2"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Sprite" type="Sprite2D" parent="Number2"]
+position = Vector2(50, 50)
+texture = ExtResource("1_2xema")
+
+[node name="Label" type="Label" parent="Number2"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Number3" type="Area2D" parent="." groups=["Cards"]]
+position = Vector2(447, 300)
+script = ExtResource("2_lvs0w")
+metadata/_edit_group_ = true
+
+[node name="Collison" type="CollisionShape2D" parent="Number3"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Sprite" type="Sprite2D" parent="Number3"]
+position = Vector2(50, 50)
+texture = ExtResource("1_2xema")
+
+[node name="Label" type="Label" parent="Number3"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Operator1" type="Area2D" parent="." groups=["Cards"]]
+position = Vector2(706, 385)
+script = ExtResource("2_lvs0w")
+metadata/_edit_group_ = true
+
+[node name="Collison" type="CollisionShape2D" parent="Operator1"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_nln8v")
+
+[node name="Sprite" type="Sprite2D" parent="Operator1"]
+position = Vector2(50, 50)
+texture = ExtResource("9_kn87t")
+
+[node name="Label" type="Label" parent="Operator1"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Slot1" to="Slot1" method="_on_area_entered"]
+[connection signal="area_exited" from="Slot1" to="Slot1" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Slot1" to="Slot1" method="_on_mouse_entered"]
+[connection signal="area_entered" from="Slot2" to="Slot2" method="_on_area_entered"]
+[connection signal="area_exited" from="Slot2" to="Slot2" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Slot2" to="Slot2" method="_on_mouse_entered"]
+[connection signal="area_entered" from="Slot3" to="Slot3" method="_on_area_entered"]
+[connection signal="area_exited" from="Slot3" to="Slot3" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Slot3" to="Slot3" method="_on_mouse_entered"]
+[connection signal="area_entered" from="Bar1" to="Bar1" method="_on_area_entered"]
+[connection signal="area_exited" from="Bar1" to="Bar1" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Bar1" to="Bar1" method="_on_mouse_entered"]
+[connection signal="area_entered" from="Bar2" to="Bar2" method="_on_area_entered"]
+[connection signal="area_exited" from="Bar2" to="Bar2" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Bar2" to="Bar2" method="_on_mouse_entered"]
+[connection signal="area_entered" from="Bar3" to="Bar3" method="_on_area_entered"]
+[connection signal="area_exited" from="Bar3" to="Bar3" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Bar3" to="Bar3" method="_on_mouse_entered"]
+[connection signal="area_entered" from="Bar4" to="Bar4" method="_on_area_entered"]
+[connection signal="area_exited" from="Bar4" to="Bar4" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Bar4" to="Bar4" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="EqualsOperator" to="EqualsOperator" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="ExpectedValue" to="ExpectedValue" method="_on_mouse_entered"]
+[connection signal="body_entered" from="Number1" to="Number1" method="_on_body_entered"]
+[connection signal="body_exited" from="Number1" to="Number1" method="_on_body_exited"]
+[connection signal="input_event" from="Number1" to="Number1" method="_on_input_event"]
+[connection signal="body_entered" from="Number2" to="Number2" method="_on_body_entered"]
+[connection signal="input_event" from="Number2" to="Number2" method="_on_input_event"]
+[connection signal="body_entered" from="Number3" to="Number3" method="_on_body_entered"]
+[connection signal="input_event" from="Number3" to="Number3" method="_on_input_event"]
+[connection signal="area_shape_entered" from="Operator1" to="Operator1" method="_on_area_shape_entered"]
+[connection signal="body_entered" from="Operator1" to="Operator1" method="_on_body_entered"]
+[connection signal="body_exited" from="Operator1" to="Operator1" method="_on_body_exited"]
+[connection signal="input_event" from="Operator1" to="Operator1" method="_on_input_event"]
+[connection signal="mouse_exited" from="Operator1" to="Number1" method="_on_operator_1_mouse_exited"]
+[connection signal="tree_entered" from="Operator1" to="Operator1" method="_on_tree_entered"]

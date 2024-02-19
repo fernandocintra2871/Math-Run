@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://c8uqry324010j"]
+
+[ext_resource type="Script" path="res://options.gd" id="1_0q37u"]
+[ext_resource type="Texture2D" uid="uid://cgt8guxmo4jhg" path="res://assets/background_menu.png" id="1_n3lkl"]
+[ext_resource type="FontFile" uid="uid://dp6yuo1b3ghc2" path="res://font/OpenSans-ExtraBoldItalic.ttf" id="2_xyssw"]
+[ext_resource type="Texture2D" uid="uid://8oexgdnq4anx" path="res://assets/stage_title.png" id="3_f4wwx"]
+[ext_resource type="FontFile" uid="uid://b04mewigrlxkl" path="res://font/OpenSans-ExtraBold.ttf" id="4_nns4j"]
+[ext_resource type="Texture2D" uid="uid://bf785spu8u2a3" path="res://assets/button_menu.png" id="6_dplhn"]
+[ext_resource type="Script" path="res://menu_options.gd" id="7_t8yai"]
+[ext_resource type="AudioStream" uid="uid://mvecijvr27qx" path="res://audio/menuSelect.wav" id="8_jpxot"]
+[ext_resource type="AudioStream" uid="uid://dayihv64gk6d7" path="res://audio/click.wav" id="9_xwgsa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajg6t"]
+font = ExtResource("2_xyssw")
+font_size = 100
+font_color = Color(0.447059, 0.584314, 0.6, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_to23h"]
+font = ExtResource("4_nns4j")
+font_color = Color(0.447059, 0.584314, 0.6, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tuubm"]
+font = ExtResource("4_nns4j")
+font_color = Color(0.447059, 0.584314, 0.6, 1)
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0q37u")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = ExtResource("1_n3lkl")
+expand_mode = 1
+
+[node name="titulo" type="Label" parent="background"]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 226.0
+offset_right = 1042.0
+offset_bottom = 366.0
+text = "Opções"
+label_settings = SubResource("LabelSettings_ajg6t")
+
+[node name="rush" type="TextureRect" parent="background"]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 274.0
+offset_right = 671.0
+offset_bottom = 335.0
+texture = ExtResource("3_f4wwx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -55.0
+offset_right = 199.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="fullscreen_label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Tela Cheia"
+label_settings = SubResource("LabelSettings_to23h")
+vertical_alignment = 1
+
+[node name="music_vol_label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Volume da Música"
+label_settings = SubResource("LabelSettings_tuubm")
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="tela_cheia_checkbox" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="music_vol_slider" type="HSlider" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+min_value = -80.0
+max_value = -20.0
+value = -20.0
+
+[node name="menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 27.0
+offset_right = 236.0
+offset_bottom = 98.0
+texture_normal = ExtResource("6_dplhn")
+script = ExtResource("7_t8yai")
+
+[node name="selectAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jpxot")
+
+[node name="clickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_xwgsa")
+
+[connection signal="toggled" from="HBoxContainer/VBoxContainer2/tela_cheia_checkbox" to="." method="_on_tela_cheia_checkbox_toggled"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer2/music_vol_slider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="mouse_entered" from="menu" to="menu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="menu" to="menu" method="_on_mouse_exited"]
+[connection signal="pressed" from="menu" to="menu" method="_on_pressed"]

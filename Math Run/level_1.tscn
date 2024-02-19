@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://7jpogs0fyc8h"]
+
+[ext_resource type="Script" path="res://Slot1.gd" id="1_cmglt"]
+[ext_resource type="PackedScene" uid="uid://cs7l02ltntkia" path="res://slot.tscn" id="2_d8nfy"]
+[ext_resource type="Texture2D" uid="uid://kvfujxtvr60i" path="res://assets/background.png" id="2_jq4ui"]
+[ext_resource type="PackedScene" uid="uid://4fd45n3htj1x" path="res://card.tscn" id="3_2fsvs"]
+[ext_resource type="Texture2D" uid="uid://m5k8fpbkds4k" path="res://assets/card_bar.png" id="3_adkkm"]
+[ext_resource type="Texture2D" uid="uid://bkfocm57ck3v5" path="res://assets/operator_frame.png" id="4_3l3bj"]
+[ext_resource type="PackedScene" uid="uid://cdl8cgch3sbna" path="res://bar.tscn" id="4_f2pfm"]
+[ext_resource type="Texture2D" uid="uid://bis1lyrc4uxn4" path="res://assets/number_frame.png" id="5_yehlf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w5lf"]
+size = Vector2(50, 50)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_cmglt")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(800, 450)
+texture = ExtResource("2_jq4ui")
+
+[node name="slot_bar" type="Sprite2D" parent="."]
+position = Vector2(800, 450)
+rotation = 1.5708
+texture = ExtResource("3_adkkm")
+
+[node name="card_bar" type="Sprite2D" parent="."]
+position = Vector2(1525, 525)
+texture = ExtResource("3_adkkm")
+
+[node name="EqualsOperator" type="StaticBody2D" parent="."]
+position = Vector2(950, 400)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="EqualsOperator"]
+position = Vector2(50, 50)
+texture = ExtResource("4_3l3bj")
+
+[node name="Collison" type="CollisionShape2D" parent="EqualsOperator"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_4w5lf")
+
+[node name="Label" type="Label" parent="EqualsOperator"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpectedValue" type="StaticBody2D" parent="."]
+position = Vector2(1050, 400)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="ExpectedValue"]
+position = Vector2(50, 50)
+texture = ExtResource("5_yehlf")
+
+[node name="Collison" type="CollisionShape2D" parent="ExpectedValue"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_4w5lf")
+
+[node name="Label" type="Label" parent="ExpectedValue"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot1" parent="." instance=ExtResource("2_d8nfy")]
+position = Vector2(450, 400)
+
+[node name="Slot2" parent="." instance=ExtResource("2_d8nfy")]
+position = Vector2(550, 400)
+
+[node name="Slot3" parent="." instance=ExtResource("2_d8nfy")]
+position = Vector2(650, 400)
+
+[node name="Slot4" parent="." instance=ExtResource("2_d8nfy")]
+position = Vector2(750, 400)
+
+[node name="Slot5" parent="." instance=ExtResource("2_d8nfy")]
+position = Vector2(850, 400)
+
+[node name="Bar1" parent="." instance=ExtResource("4_f2pfm")]
+position = Vector2(1475, 175)
+
+[node name="Bar2" parent="." instance=ExtResource("4_f2pfm")]
+position = Vector2(1475, 275)
+
+[node name="Bar3" parent="." instance=ExtResource("4_f2pfm")]
+position = Vector2(1475, 375)
+
+[node name="Bar4" parent="." instance=ExtResource("4_f2pfm")]
+position = Vector2(1475, 475)
+
+[node name="Bar5" parent="." instance=ExtResource("4_f2pfm")]
+position = Vector2(1475, 575)
+
+[node name="Bar6" parent="." instance=ExtResource("4_f2pfm")]
+position = Vector2(1475, 675)
+
+[node name="Bar7" parent="." instance=ExtResource("4_f2pfm")]
+position = Vector2(1475, 775)
+
+[node name="Number1" parent="." instance=ExtResource("3_2fsvs")]
+position = Vector2(1842, -9)
+
+[node name="Number2" parent="." instance=ExtResource("3_2fsvs")]
+position = Vector2(1720, 3)
+
+[node name="Number3" parent="." instance=ExtResource("3_2fsvs")]
+position = Vector2(1620, 12)
+
+[node name="Number4" parent="." instance=ExtResource("3_2fsvs")]
+position = Vector2(1620, 12)
+
+[node name="Number5" parent="." instance=ExtResource("3_2fsvs")]
+position = Vector2(1620, 12)
+
+[node name="Number6" parent="." instance=ExtResource("3_2fsvs")]
+position = Vector2(1620, 12)
+
+[node name="Number7" parent="." instance=ExtResource("3_2fsvs")]
+position = Vector2(1620, 12)
+
+[connection signal="mouse_entered" from="EqualsOperator" to="EqualsOperator" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="ExpectedValue" to="ExpectedValue" method="_on_mouse_entered"]

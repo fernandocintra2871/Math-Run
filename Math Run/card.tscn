@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://4fd45n3htj1x"]
+
+[ext_resource type="Script" path="res://scripts/Numbers.gd" id="1_q0go0"]
+[ext_resource type="Texture2D" uid="uid://bis1lyrc4uxn4" path="res://assets/number_frame.png" id="2_tcb42"]
+[ext_resource type="AudioStream" uid="uid://djsfg3aj81b66" path="res://audio/cardDropped.wav" id="3_opff4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_clv25"]
+font_size = 48
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0haw"]
+size = Vector2(50, 50)
+
+[node name="Number1" type="Area2D" groups=["Cards"]]
+script = ExtResource("1_q0go0")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tcb42")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 64
+text = "1"
+label_settings = SubResource("LabelSettings_clv25")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Collison" type="CollisionShape2D" parent="."]
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_e0haw")
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_opff4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

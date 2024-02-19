@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs7l02ltntkia"]
+
+[ext_resource type="Script" path="res://scripts/Slots.gd" id="1_7qmii"]
+[ext_resource type="Texture2D" uid="uid://bi4our8xyvla1" path="res://assets/empty_frame.png" id="2_x25u8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt5wu"]
+size = Vector2(50, 50)
+
+[node name="Slot1" type="Area2D" groups=["Slots"]]
+script = ExtResource("1_7qmii")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_x25u8")
+
+[node name="Collison" type="CollisionShape2D" parent="."]
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_tt5wu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

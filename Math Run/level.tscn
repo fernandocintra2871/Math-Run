@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://byeg41x7yjr28"]
+
+[ext_resource type="Script" path="res://scripts/´level.gd" id="1_8w5co"]
+[ext_resource type="AudioStream" uid="uid://bgn4d1c78nsww" path="res://audio/gameMusic.mp3" id="2_smivm"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8w5co")
+
+[node name="gameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_smivm")
+volume_db = -20.0
